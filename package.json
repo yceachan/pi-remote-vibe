@@ -1,0 +1,35 @@
+{
+  "name": "pi-remote-vibe",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite packages/web --host 127.0.0.1",
+    "build": "node scripts/check-ssh-assets.mjs && vite build packages/web",
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts packages/web/*.test.ts",
+    "pc": "tsx packages/pc/cli.ts",
+    "relay": "tsx packages/relay/cli.ts",
+    "bridge": "tsx packages/pc/stdio.ts",
+    "build:ssh": "node packages/browser-ssh/scripts/build.mjs",
+    "test:ssh": "cd packages/browser-ssh && go test -race ./internal/...",
+    "test:ssh-browser": "node packages/browser-ssh/scripts/smoke.mjs",
+    "test:web-browser": "node packages/web/scripts/smoke.mjs",
+    "test:passkey": "tsx packages/web/scripts/auth-smoke.ts",
+    "test:e2e": "tsx tests/e2e-smoke.ts"
+  },
+  "dependencies": {
+    "@simplewebauthn/browser": "^14.0.0",
+    "@simplewebauthn/server": "^14.0.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

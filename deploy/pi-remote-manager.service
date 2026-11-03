@@ -1,0 +1,19 @@
+# Install as ~/.config/systemd/user/pi-remote-manager.service on the PC.
+[Unit]
+Description=Persistent Pi Remote session manager
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/pi-remote-vibe
+ExecStart=/usr/bin/node --import tsx packages/pc/cli.ts /home/alice/.config/pi-remote/pc.json
+Restart=on-failure
+RestartSec=3
+UMask=0077
+# The manager and Pi inherit this user's HOME and explicitly configured PATH.
+Environment=PATH=/home/alice/.local/bin:/usr/local/bin:/usr/bin:/bin
+KillMode=control-group
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

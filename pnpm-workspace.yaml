@@ -1,0 +1,5 @@
+packages:
+  - packages/browser-ssh
+  - packages/web
+allowBuilds:
+  esbuild: true

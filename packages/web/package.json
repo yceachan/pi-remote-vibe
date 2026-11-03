@@ -1,0 +1,9 @@
+{
+  "name": "@pi-remote/web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {"dev": "vite --host 127.0.0.1", "build": "vite build", "preview": "vite preview --host 127.0.0.1", "test:ui": "node scripts/smoke.mjs", "test:auth": "tsx scripts/auth-smoke.ts"},
+  "dependencies": {"@pi-remote/browser-ssh": "workspace:*", "@simplewebauthn/browser": "^14.0.0"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

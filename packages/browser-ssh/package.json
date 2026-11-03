@@ -1,0 +1,15 @@
+{
+  "name": "@pi-remote/browser-ssh",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "build:wasm": "node scripts/build.mjs",
+    "test:go": "go test ./internal/...",
+    "test:browser": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

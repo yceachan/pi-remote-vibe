@@ -1,0 +1,12 @@
+node_modules/
+/work/
+dist/
+.data/
+.env
+*.log
+artifacts/
+*.sock
+*.pem
+*.key
+deploy/*.local.json
+packages/web/public/ssh/

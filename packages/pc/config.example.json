@@ -1,0 +1,12 @@
+{
+  "dataDir": "/home/alice/.local/state/pi-remote",
+  "socketPath": "/home/alice/.local/state/pi-remote/manager.sock",
+  "piCommand": "/home/alice/.local/bin/pi",
+  "projects": [
+    { "id": "main", "name": "My project", "path": "/home/alice/projects/my-project" }
+  ],
+  "env": { "PATH": "/home/alice/.local/bin:/usr/local/bin:/usr/bin:/bin" },
+  "leaseMs": 30000,
+  "eventLimit": 2048,
+  "rpcTimeoutMs": 30000
+}

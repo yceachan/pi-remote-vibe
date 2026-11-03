@@ -1,0 +1,15 @@
+{
+  "origin": "https://pi.example.com",
+  "rpId": "pi.example.com",
+  "listenHost": "127.0.0.1",
+  "port": 3100,
+  "dataDir": "/var/lib/pi-remote-relay",
+  "staticDir": "/opt/pi-remote-vibe/packages/web/dist",
+  "hosts": [
+    { "id": "home", "name": "Home PC", "port": 2201, "sshUser": "alice" },
+    { "id": "office", "name": "Office PC", "port": 2202, "sshUser": "alice" }
+  ],
+  "users": [
+    { "id": "owner", "name": "Owner", "hostIds": ["home", "office"], "enrollmentTokenHash": "REPLACE_WITH_SHA256_HEX_FROM_ENROLLMENT_SCRIPT" }
+  ]
+}

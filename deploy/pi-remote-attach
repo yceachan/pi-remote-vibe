@@ -1,0 +1,5 @@
+#!/bin/sh
+# Install root-owned at /usr/local/bin/pi-remote-attach, mode 0755.
+# Edit absolute installation/socket paths; never evaluate SSH_ORIGINAL_COMMAND.
+cd /opt/pi-remote-vibe || exit 1
+exec /usr/bin/node --import tsx packages/pc/stdio.ts /home/alice/.local/state/pi-remote/manager.sock
