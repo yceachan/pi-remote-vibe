@@ -1,0 +1,3 @@
+# Append the PHONE public key to the Pi user's authorized_keys on each PC.
+# This key can only reach the local manager, with no PTY or forwarding.
+restrict,command="/usr/local/bin/pi-remote-attach" ssh-ed25519 REPLACE_WITH_PHONE_PUBLIC_KEY phone-pwa

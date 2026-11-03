@@ -1,0 +1,2 @@
+# tunnel-home's authorized_keys. Use 2202 in tunnel-office's account.
+restrict,port-forwarding,permitlisten="127.0.0.1:2201" ssh-ed25519 REPLACE_WITH_HOME_TUNNEL_PUBLIC_KEY home-tunnel

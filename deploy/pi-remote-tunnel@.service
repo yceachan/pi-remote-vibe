@@ -1,0 +1,15 @@
+# Install on each PC as a systemd user unit. Instance home => tunnel-home user,
+# tunnel-home key, and ~/.config/pi-remote/tunnel-home.env with TUNNEL_PORT=2201.
+[Unit]
+Description=Pi Remote outbound SSH tunnel (%i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=%h/.config/pi-remote/tunnel-%i.env
+ExecStart=/usr/bin/ssh -N -T -i %h/.ssh/pi-tunnel-%i -o BatchMode=yes -o StrictHostKeyChecking=yes -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -R 127.0.0.1:${TUNNEL_PORT}:127.0.0.1:22 tunnel-%i@vps.example.com
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

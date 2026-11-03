@@ -1,0 +1,22 @@
+# Install as /etc/systemd/system/pi-remote-relay.service on the VPS.
+[Unit]
+Description=Pi Remote Passkey and SSH byte relay
+After=network.target
+
+[Service]
+User=pi-relay
+Group=pi-relay
+WorkingDirectory=/opt/pi-remote-vibe
+ExecStart=/usr/bin/node --import tsx packages/relay/cli.ts /etc/pi-remote/relay.json
+StateDirectory=pi-remote-relay
+UMask=0077
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/pi-remote-relay
+
+[Install]
+WantedBy=multi-user.target
